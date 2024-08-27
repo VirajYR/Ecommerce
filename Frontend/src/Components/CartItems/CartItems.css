@@ -1,0 +1,111 @@
+.CartItems {
+    margin: 100px 170px;
+}
+
+.CartItems hr {
+    height: 3px;
+    border: 0;
+    background-color: #e2e2e2;
+
+}
+
+.CartItemsFormatMain {
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+    gap: 75px;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.CartItemsFormat {
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.CartProductImg {
+    width: 70px;
+}
+
+.CartRemoveImg {
+    margin: 30px;
+}
+
+.CartQuantityBtn {
+    width: 64px;
+    height: 50px;
+    border: 2px solid #ebebeb;
+    background-color: #fff;
+}
+
+.CartCheckout {
+
+    display: flex;
+
+}
+
+.CartAmount {
+    width: 45vw;
+    margin: 100px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.CartTotals,
+.CartShippingFee,
+.CartFinalAmount {
+    display: grid;
+    grid-template-columns: 0.4fr 0.5fr;
+    /* gap: 300px; */
+
+}
+
+.CartFinalAmount {
+    font-size: 20px;
+    font-weight: 900;
+    font-style: bold;
+
+}
+
+.CartCheckout hr {
+    width: 35vw;
+}
+.CheckOutBtn button{
+    background-color: #db347a;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-align: center;
+    display: inline-block;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.Promocode {
+    margin: 100px 0px;
+    /* padding: 50px; */
+}
+
+.Promocode input {
+    margin-top: 30px;
+    width: 200px;
+    background-color: #eaeaea;
+    padding: 15px;
+    /* background: transparent; */
+    border: none;
+    outline: none;
+}
+
+.Promocode button {
+    background-color: black;
+    padding: 15px;
+    color: white;
+    cursor: pointer;
+}

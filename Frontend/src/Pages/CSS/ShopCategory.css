@@ -1,0 +1,54 @@
+.banner img {
+    display: block;
+    width: 80vw;
+    margin: 0px auto;
+}
+
+.sortCategory {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px -500px;
+}
+
+.CategoryProductSort img {
+    margin: 0px 10px;
+
+}
+
+.CategoryProductSort {
+
+    border: 1px solid rgb(66, 64, 64);
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.CategoryIndexSort span {
+    font-weight: 600;
+}
+
+.products {
+    margin: 20px 70px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+
+}
+
+.exploreMore {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 69px;
+    width: 233px;
+    margin: 150px auto;
+
+    background-color: rgb(212, 115, 34);
+    border-radius: 75px;
+    font-size: 20px;
+
+}
+.exploreMore:hover{
+    background-color: rgba(212, 114, 34, 0.863);
+    cursor: pointer;
+}

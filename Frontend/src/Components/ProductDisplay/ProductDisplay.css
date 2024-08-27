@@ -1,0 +1,109 @@
+.ProductDisplayLeft {
+    margin: 0px 100px;
+}
+
+.ProductDisplayRight {
+    margin: 0px 300px 0px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+.ProductDisplay {
+    display: flex;
+    margin: 50px 10px;
+}
+
+.ProductDisplayRight .ProductName h2 {
+    font-size: 30px;
+
+}
+
+.ProductImg {
+    display: flex;
+}
+
+.ProductImgList {
+
+
+    margin: 5px 10px
+}
+
+.ProductImgList img {
+
+    height: 100px;
+}
+
+
+.ProductImgMain img {
+    margin: 5px 10px;
+    height: 420px;
+}
+
+.ProductRating {
+    display: flex;
+    gap: 10px;
+}
+
+.ProductRating:hover {
+    cursor: pointer;
+}
+
+.ProductPrices {
+    display: flex;
+    gap: 20px;
+}
+
+.ProductOldPrice {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.ProductNewPrice {
+    color: #db347a;
+    font-size: large;
+    font-weight: bold;
+}
+.SizeSelection ul{
+    margin: 20px;
+    display: flex;
+    gap: 10px;
+}
+.SizeSelection li {
+    /* margin: 10px; */
+    background:#fbfbfb;
+    padding: 18px;
+    border: 1px solid #ebebeb;
+    border-radius: 4px;
+    list-style: none;
+    cursor: pointer;
+
+}
+
+.AddToCartBtn button{
+    background-color: #db4d34;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-align: center;
+    display: inline-block;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.AddToCartBtn button:hover {
+    background-color: #db4d34d7;
+    transform: translateY(-2px);
+}
+
+.ProductCategory span{
+font-size: large;
+}
+.ProductTags span{
+    font-size: large;
+
+}

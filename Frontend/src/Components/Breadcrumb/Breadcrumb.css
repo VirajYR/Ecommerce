@@ -1,0 +1,9 @@
+.Breadcrumb{
+    display: flex;
+    align-items: center;
+    /* justify-content: ; */
+    margin: 10px 100px;
+}
+.Breadcrumb img{
+    margin: 0px 5px;
+}

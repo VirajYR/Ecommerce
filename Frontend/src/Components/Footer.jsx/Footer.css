@@ -1,0 +1,31 @@
+.Footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.webIcon{
+    cursor: pointer;
+}
+.FooterLinks ul{
+    display: flex;
+    flex-direction: row;
+}
+.FooterLinks ul li{
+    list-style: none;
+    margin: 15px;
+    cursor: pointer;
+}
+.FooterLinks ul li:hover{
+    color: rgb(70, 67, 67);
+}
+.SocialHandles img{
+    margin: 15px;
+    cursor: pointer;
+
+}
+.Footer hr{
+    width: 80vw;
+
+}

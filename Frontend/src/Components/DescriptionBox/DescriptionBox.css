@@ -1,0 +1,23 @@
+.DescriptionBox {
+    margin: 100px;
+}
+
+.DescriptionBoxNavigator {
+    display: flex;
+    /* gap: 10px; */
+}
+
+.DescriptionBoxNav {
+    border: 1px solid #d0d0d0;;
+    padding: 20px;
+}
+.ProductDescription{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #d0d0d0;
+    padding: 50px;
+    padding-bottom: 70px;
+    gap: 25px;
+}

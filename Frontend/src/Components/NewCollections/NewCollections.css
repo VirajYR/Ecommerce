@@ -1,0 +1,20 @@
+.NewCollections h1{
+    text-align: center;
+}
+
+.collections {
+    margin: 20px 70px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+   
+   
+}
+.NewCollections hr{
+    width: 150px;
+    height: 5px;
+    border-radius: 5px;
+    background-color: #252525;
+    margin: 10px auto;
+}

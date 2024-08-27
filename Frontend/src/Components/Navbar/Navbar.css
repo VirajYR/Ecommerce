@@ -1,0 +1,78 @@
+
+
+.Navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 15vh;
+    /* background-color: aqua; */
+}
+
+.webIcon {
+    display: flex;
+}
+
+.webIcon h1 {
+    padding: 15px;
+}
+
+.menu {
+
+    display: flex;
+    gap: 15px;
+
+}
+
+.menu li {
+    list-style: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.loginAndCart {
+    display: flex;
+    gap: 30px;
+
+}
+
+.loginBtn {
+    background-color: #db347a;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-align: center;
+    display: inline-block;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.loginBtn:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+.cartCount{
+    background-color: red;
+    display: flex;
+    color: white;
+    margin-top: -10px;
+    margin-left: -45px;
+    width: 20px;
+    height: 25px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.menu hr{
+    background-color: red;
+}
+.NavHorizontalRuler hr{
+
+    height: 3px;
+    border: 0;
+    background-color: #e2e2e2;
+}

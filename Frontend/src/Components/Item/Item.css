@@ -1,0 +1,22 @@
+.Item {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    border: 2px solid rgb(189, 185, 185);
+    box-shadow: 0 0 15px 5px rgba(2, 2, 2, 0.2);
+    padding: 12px;
+}
+
+.Item:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.Item img {
+    width: 300px;
+}
+
+.ItemPriceOld {
+    text-decoration: line-through;
+    color: gray;
+}

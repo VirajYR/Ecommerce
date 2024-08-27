@@ -1,0 +1,36 @@
+.Offers{
+    margin: 100px 170px;
+    background: linear-gradient(to bottom ,#d3bed0,#ffffff );
+    height: 70vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.Offers img{
+    width: 300px;
+}
+.OffersLeft h5{
+    font-size: 50px;
+    font-weight: bold;
+   
+}
+.OffersLeft p {
+    margin: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.CheckBtn button{
+    padding: 10px 50px;
+    background-color: rgb(228, 71, 71);
+    border-radius: 40px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.CheckBtn button:hover {
+    background-color: rgb(209, 19, 19);
+    transform: translateY(-2px);
+}

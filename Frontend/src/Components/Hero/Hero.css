@@ -1,0 +1,44 @@
+.Hero{
+    height: 85vh;
+    background: linear-gradient(to bottom ,#d3bed0,#ffffff );
+    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.HeroRight img {
+    width: 450px;
+}
+
+.Heading {
+    font-size: 30px;
+    font-weight: bold;
+}
+.TextImg {
+    display: flex;
+}
+.TextImg img {
+    width: 60px;
+    height: auto;
+    margin: 5px;
+}
+
+
+.HeroLeft h6 {
+    font-size: 60px;
+    font-weight: bold;
+}
+
+.CollectionBtn button{
+    padding: 15px;
+    background-color: rgb(228, 71, 71);
+    border-radius: 40px;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.CollectionBtn button:hover {
+    background-color: rgb(209, 19, 19);
+    transform: translateY(-2px);
+}

@@ -1,0 +1,40 @@
+.NewsLetter {
+    margin: 100px 170px;
+    background: linear-gradient(to bottom, #d3bed0, #ffffff);
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.NewsLetter h5{
+    font-size: 50px;
+    font-weight: bold;
+}
+.NewsLetter p {
+    font-size: 25px;
+}
+.SubscribeBar input{
+    padding: 15px 100px 15px 50px;
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 0 15px 5px rgba(2, 2, 2, 0.2);
+
+}
+.SubscribeBar button{
+    padding: 16px 50px;
+    background-color: rgb(27, 12, 12);
+    border-radius: 40px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin: -20px;
+}
+
+.SubscribeBar button:hover {
+    background-color: rgb(209, 19, 19);
+    transform: translateY(-2px);
+}
