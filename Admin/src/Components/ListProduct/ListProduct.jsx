@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import "./ListProduct.css"
+require('dotenv').config();
 import crossicon from "../../assets/cross_icon.png"
 const ListProduct = () => {
   const [allProducts, setAllProducts] = useState([]);
   const fetchInfo = async () => {
-    await fetch("http://localhost:3000/allproducts").then((res) => res.json()).then((data) => { setAllProducts(data) });
+    await fetch(`$(process.env.REACT_APP_API_URL)/allproducts`).then((res) => res.json()).then((data) => { setAllProducts(data) });
 
   }
   useEffect(() => {
     fetchInfo();
   }, []);
   const removeProduct = async (id) => {
-    await fetch("http://localhost:3000/removeproduct", {
+    await fetch(`$(process.env.REACT_APP_API_URL)/removeproduct`, {
 
       method: "post",
       headers: {

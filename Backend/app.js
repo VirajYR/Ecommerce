@@ -37,7 +37,7 @@ const upload = multer({
 // Middleware
 app.use(express.json());
 app.use(cors({
-    origin: ['https://divinedelight.me', 'https://admin.divinedelight.me'],
+    origin: ['https://divinedelight.me', 'https://divinedelight.me/admin'],
     optionsSuccessStatus: 200
 }));
 

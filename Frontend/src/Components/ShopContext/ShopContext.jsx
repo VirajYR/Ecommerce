@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
-
+require('dotenv').config();
 export const ShopContext = createContext(null);
 const getDefaultCart = () => {
 
@@ -16,7 +16,7 @@ const ShopContextProvider = (props) => {
     useEffect(() => {
         console.log("Fetching data...");
 
-        fetch("http://localhost:3000/allproducts")
+        fetch(`$(process.env.REACT_APP_API_URL)allproducts`)
             .then((response) => {
                 if (!response.ok) {
                     throw new Error("Network Response was not ok");
@@ -30,7 +30,7 @@ const ShopContextProvider = (props) => {
             });
 
         if (localStorage.getItem("auth-token")) {
-            fetch("http://localhost:3000/getcart", {
+            fetch(`$(process.env.REACT_APP_API_URL)getcart`, {
                 method: "POST",
                 headers: {
                     Accept: "application/form-data",
@@ -48,7 +48,7 @@ const ShopContextProvider = (props) => {
         setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
         if (localStorage.getItem("auth-token")) {
 
-            fetch("http://localhost:3000/addtocart", {
+            fetch(`$(process.env.REACT_APP_API_URL)addtocart`, {
                 method: "POST",
                 headers: {
                     Accept: "application/form-data",
@@ -67,7 +67,7 @@ const ShopContextProvider = (props) => {
         setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
         if (localStorage.getItem("auth-token")) {
 
-            fetch("http://localhost:3000/removefromcart", {
+            fetch(`$(process.env.REACT_APP_API_URL)removefromcart`, {
                 method: "POST",
                 headers: {
                     Accept: "application/form-data",

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import "./AddProduct.css"
+require('dotenv').config();
 import uploadArea from "../../assets/upload_area.svg"
 const AddProduct = () => {
     const [image, setImage] = useState(false);
@@ -20,7 +21,7 @@ const AddProduct = () => {
 
         let formData = new FormData();
         formData.append('product', image);
-        await fetch("http://localhost:3000/upload", {
+        await fetch(`$(process.env.REACT_APP_API_URL)/upload`, {
             method: "post",
             headers: {
                 Accept: "application/json",
@@ -30,7 +31,7 @@ const AddProduct = () => {
         if (responseData.success) {
             product.image = responseData.image_url;
             console.log(product);
-            await fetch("http://localhost:3000/addproduct", {
+            await fetch(`$(process.env.REACT_APP_API_URL)/addproduct`, {
                 method: "post",
                 headers: {
                     Accept: "application/json",

@@ -6,7 +6,7 @@ import "./Popular.css"
 const Popular = () => {
     const [PopularInWomen, setPopularInWomen] = useState([]);
     useEffect(() => {
-        fetch("http://localhost:3000/popularinwomen")
+        fetch(`$(process.env.REACT_APP_API_URL)popularinwomen`)
             .then((response) => response.json())
             .then((data) => setPopularInWomen(data));
 

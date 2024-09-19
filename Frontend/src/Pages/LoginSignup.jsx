@@ -14,7 +14,7 @@ const LoginSignup = () => {
 
     console.log("Login Function Executed", formData);
     let responseData;
-    await fetch("http://localhost:3000/login", {
+    await fetch("https://divinedelight.me/api/login", {
       method: "POST",
       headers: {
         Accept: "application/form-data",
@@ -35,7 +35,7 @@ const LoginSignup = () => {
   const signup = async () => {
     console.log("Sign Up Function Executed", formData);
     let responseData;
-    await fetch("http://localhost:3000/signup", {
+    await fetch("https://divinedelight.me/api/signup", {
       method: "POST",
       headers: {
         Accept: "application/form-data",
