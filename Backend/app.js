@@ -2,44 +2,29 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
-const multer = require("multer");
-const path = require("path");
-const bcrypt = require('bcryptjs');
 const cors = require("cors");
-const aws = require('aws-sdk');
+const { S3Client } = require('@aws-sdk/client-s3');
+const multer = require('multer');
 const multerS3 = require('multer-s3');
-const { log, error } = require('console');
+const path = require("path");
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-dotenv.config();
-
-// Database Connection with MongoDB
-mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log('MongoDB Connected'))
-    .catch(err => console.error('MongoDB connection error:', err));
-
-// Middleware
-app.use(express.json());
-app.use(cors({
-    origin: 'https://your-frontend-domain.com',
-    optionsSuccessStatus: 200
-}));
-
 // AWS S3 Configuration for Image Storage
-aws.config.update({
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+const s3Client = new S3Client({
     region: process.env.AWS_REGION,
+    credentials: {
+        accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+    },
 });
 
-const s3 = new aws.S3();
-
+// Multer setup for S3
 const upload = multer({
     storage: multerS3({
-        s3: s3,
-        bucket: process.env.S3_BUCKET,
+        s3: s3Client,
+        bucket: process.env.BUCKET_NAME,
         metadata: (req, file, cb) => {
             cb(null, { fieldName: file.fieldname });
         },
@@ -49,15 +34,25 @@ const upload = multer({
     })
 });
 
+// Middleware
+app.use(express.json());
+app.use(cors({
+    origin: ['https://divinedelight.me', 'https://admin.divinedelight.me'],
+    optionsSuccessStatus: 200
+}));
+
+// Database Connection with MongoDB
+mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log('MongoDB Connected'))
+    .catch(err => console.error('MongoDB connection error:', err));
+
 // Generate Image URL Endpoint
-app.use("/images", express.static("upload/images"));
 app.post("/upload", upload.single("product"), (req, res) => {
     res.json({
         success: 1,
         image_url: req.file.location  // S3 URL
     });
 });
-
 // MongoDB Schema for Product
 const Product = mongoose.model("Product", {
     id: { type: Number, required: true },
@@ -181,29 +176,32 @@ app.post("/signup", async (req, res) => {
     let check = await Users.findOne({ email: req.body.email });
     if (check) {
         return res.status(400).json({ success: false, errors: "Email ID already Registered" });
+
     }
-
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(req.body.password, salt);
-
     let cart = {};
     for (let i = 0; i < 300; i++) {
         cart[i] = 0;
-    }
 
+    }
     const user = new Users({
         name: req.body.username,
         email: req.body.email,
-        password: hashedPassword,
+        password: req.body.password,
         cartData: cart,
-    });
+    })
 
     await user.save();
 
-    const data = { user: { id: user.id } };
+    const data = {
+        user: {
+
+            id: user.id
+        }
+    }
     const token = jwt.sign(data, process.env.JWT_SECRET);
     res.json({ success: true, token });
-});
+})
+
 
 // User Login Endpoint
 app.post("/login", async (req, res) => {
@@ -212,15 +210,19 @@ app.post("/login", async (req, res) => {
         return res.status(400).json({ success: false, errors: "Invalid Email ID" });
     }
 
-    const passCompare = await bcrypt.compare(req.body.password, user.password);
-    if (!passCompare) {
-        return res.status(400).json({ success: false, errors: "Invalid Password" });
+    const passCompare = req.body.password === user.password;
+    if (passCompare) {
+        const data = {
+            user: { id: user.id }
+        }
+        const token = jwt.sign(data, "secret_ecom");
+        res.json({ success: true, token });
     }
-
-    const data = { user: { id: user.id } };
-    const token = jwt.sign(data, process.env.JWT_SECRET);
-    res.json({ success: true, token });
+    else {
+        res.json({ success: false, errors: "Wrong Password" })
+    }
 });
+
 
 // Global Error Handling Middleware
 app.use((err, req, res, next) => {
