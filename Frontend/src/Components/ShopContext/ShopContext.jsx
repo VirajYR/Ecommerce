@@ -16,7 +16,7 @@ const ShopContextProvider = (props) => {
     useEffect(() => {
         console.log("Fetching data...");
 
-        fetch(`$(process.env.REACT_APP_API_URL)allproducts`)
+        fetch(`https://divinedelight.me/api/allproducts`)
             .then((response) => {
                 if (!response.ok) {
                     throw new Error("Network Response was not ok");
@@ -30,7 +30,7 @@ const ShopContextProvider = (props) => {
             });
 
         if (localStorage.getItem("auth-token")) {
-            fetch(`$(process.env.REACT_APP_API_URL)getcart`, {
+            fetch(`https://divinedelight.me/api/getcart`, {
                 method: "POST",
                 headers: {
                     Accept: "application/form-data",
@@ -48,7 +48,7 @@ const ShopContextProvider = (props) => {
         setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
         if (localStorage.getItem("auth-token")) {
 
-            fetch(`$(process.env.REACT_APP_API_URL)addtocart`, {
+            fetch(`https://divinedelight.me/api/addtocart`, {
                 method: "POST",
                 headers: {
                     Accept: "application/form-data",
@@ -67,7 +67,7 @@ const ShopContextProvider = (props) => {
         setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
         if (localStorage.getItem("auth-token")) {
 
-            fetch(`$(process.env.REACT_APP_API_URL)removefromcart`, {
+            fetch(`https://divinedelight.me/api/removefromcart`, {
                 method: "POST",
                 headers: {
                     Accept: "application/form-data",

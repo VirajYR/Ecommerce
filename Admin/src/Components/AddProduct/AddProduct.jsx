@@ -21,7 +21,7 @@ const AddProduct = () => {
 
         let formData = new FormData();
         formData.append('product', image);
-        await fetch(`$(process.env.REACT_APP_API_URL)/upload`, {
+        await fetch(`https://divinedelight.me/api/upload`, {
             method: "post",
             headers: {
                 Accept: "application/json",
@@ -31,7 +31,7 @@ const AddProduct = () => {
         if (responseData.success) {
             product.image = responseData.image_url;
             console.log(product);
-            await fetch(`$(process.env.REACT_APP_API_URL)/addproduct`, {
+            await fetch(`https://divinedelight.me/api/addproduct`, {
                 method: "post",
                 headers: {
                     Accept: "application/json",
